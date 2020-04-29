@@ -96,6 +96,8 @@ body {
   align-items: center;
   justify-content: center;
   z-index: 30;
+  padding: 15px 10px;
+  transition: 0.4s ease all;
 }
 
 #overlayResult.close{
@@ -105,13 +107,18 @@ body {
 #overlayResult.open{
   visibility: visible;
 }
+
+#back{
+  margin-top: 20px;
+}
+
 .overlayResult {
   margin: 0 auto;
   color: #000;
-  min-width: max-content;
-  padding: 20px 30px;
+  padding: 10px;
   min-height: 350px;
-  width: 350px;
+  max-width: 350px;
+  min-width: 280px;
   border-radius: 3px;
   background: rgba(255, 255, 255, 1);
   box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2),
@@ -122,6 +129,15 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+}
+
+.message{
+  margin-top: 10px;
+}
+
+.overlayResult img{
+  width: 80%;
+  margin: 5px;
 }
 
 #file {
@@ -285,3 +301,29 @@ button {
 button:focus {
   animation: 0.4s button ease;
 }
+
+@keyframes zoomInUp {
+  from {
+    opacity: 0;
+    -webkit-transform: scale3d(0.1, 0.1, 0.1) translate3d(0, 1000px, 0);
+    transform: scale3d(0.1, 0.1, 0.1) translate3d(0, 1000px, 0);
+    -webkit-animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: scale3d(0.475, 0.475, 0.475) translate3d(0, -60px, 0);
+    transform: scale3d(0.475, 0.475, 0.475) translate3d(0, -60px, 0);
+    -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
+    animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
+  }
+}
+
+.zoomInUp {
+  -webkit-animation-name: zoomInUp;
+  animation-name: zoomInUp;
+  animation-duration: 0.8s;
+}
+
+

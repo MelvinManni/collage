@@ -55,7 +55,7 @@ document.getElementById('save').addEventListener('click', function (e) {
         image.src = canvas.toDataURL("image/jpeg", 0.9);
         image.width = canvas.width;
         image.height = canvas.height;
-        overlayResult.className = 'open';
+        overlayResult.className = 'open zoomInUp';
     }
 });
 
