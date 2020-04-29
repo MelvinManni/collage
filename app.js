@@ -48,7 +48,21 @@ document.getElementById('save').addEventListener('click', function (e) {
   canvas.toBlob(function (blob) {
     saveAs(blob, 'Image.png');
   });
+
+    if (window.innerWidth <= 800){
+        var image = document.getElementById("image");
+        var overlayResult = document.getElementById("overlayResult");
+        image.src = canvas.toDataURL("image/jpeg", 0.9);
+        image.width = canvas.width;
+        image.height = canvas.height;
+        overlayResult.className = 'open';
+    }
 });
+
+document.getElementById('back').addEventListener('click', function (e) {
+    var overlayResult = document.getElementById("overlayResult");
+    overlayResult.className = 'close';
+ })
 
 
 clear.addEventListener('click', function(){
