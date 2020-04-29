@@ -117,9 +117,8 @@ body {
   color: #000;
   padding: 10px;
   margin: 10px;
-  min-height: 350px;
-  max-width: 350px;
-  min-width: 280px;
+  width: 200px;
+  height: 200px;
   overflow-y: scroll;
   border-radius: 3px;
   background: rgba(255, 255, 255, 1);
@@ -138,12 +137,13 @@ body {
   color: #4267b2;
 }
 .overlayResult .img img{
-  width: 100%;
+  width: 200px;
+  height: 200px;
 }
 
 .overlayResult .img{
-  max-width: 180px;
-  max-height: 180px;
+  max-width: 200px;
+  max-height: 200px;
   margin: 10px;
 }
 
