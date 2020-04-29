@@ -15,7 +15,7 @@ document.getElementById('file').addEventListener(
   function (e) {
     let files = e.target.files;
     for (let i = 0; i < imageNum; i++) {
-      if (files.length < 5) {
+      if (true) {
         var FR = new FileReader();
         FR.onload = function (e) {
           var img = new Image();
