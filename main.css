@@ -1,0 +1,241 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: 'Maven Pro', sans-serif;
+}
+/* 
+.bg {
+  background-image: url('./images/bg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.282);
+  width: 100%;
+  min-height: 100vh;
+} */
+
+.btn {
+  box-shadow: 0px 1px 0px 0px #f5f9fa8e;
+  background-color: #4267b2;
+  border-radius: 3px;
+  border: none;
+  min-width: max-content;
+  padding: 7px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 15px;
+  font-weight: bold;
+  text-decoration: none;
+  text-shadow: 0px -1px 0px #5b6178;
+  font-family: 'Inconsolata', monospace;
+  outline: none;
+}
+.btn:hover {
+  background: linear-gradient(to bottom, #4267b2 5%, #4267b2 100%);
+  background-color: #4267b2;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  min-height: 100vh;
+  padding: 50px;
+}
+
+.controls__card {
+  color: #000;
+  min-width: max-content;
+  padding: 20px 30px;
+  min-height: 350px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.594);
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2),
+    -3px -3px 6px rgba(255, 255, 255, 0.3),
+    inset 2px 2px 5px rgba(255, 255, 255, 0.3),
+    inset -2px -2px 5px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#file {
+  display: none;
+}
+
+.options {
+  padding: 10px;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.18),
+    -3px -3px 6px rgba(255, 255, 255, 0.2), 2px 2px 5px rgba(255, 255, 255, 0.2),
+    inset -2px -2px 5px rgba(0, 0, 0, 0.18);
+  font-size: 14px;
+}
+
+button.toggle {
+  background-color: #fff;
+  border: 1.8px solid #4267b2;
+  min-width: 100%;
+  border-radius: 3px;
+  color: #4267b2;
+  font-size: 14px;
+  padding: 5px;
+  margin-top: 10px;
+  min-height: max-content;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-family: 'Inconsolata', monospace;
+  font-weight: 700;
+  outline: none;
+}
+
+#imageSize {
+  background-color: #fff;
+  border: 1.8px solid #4267b2;
+  font-family: 'Inconsolata', monospace;
+  border-radius: 3px;
+  padding: 5px;
+  outline: none;
+}
+
+.upload {
+  padding: 7px;
+  border-radius: 3px;
+  width: 100%;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.18),
+    -3px -3px 6px rgba(255, 255, 255, 0.2), 2px 2px 5px rgba(255, 255, 255, 0.2),
+    inset -2px -2px 5px rgba(0, 0, 0, 0.18);
+  font-size: 14px;
+}
+
+i.file-icon {
+  width: 15px;
+  color: #4267b2;
+  margin-right: 5px;
+  position: relative;
+  top: 2px;
+}
+
+i.save,
+i.col-style {
+  width: 12px;
+  color: #fff;
+  margin-right: 5px;
+  position: relative;
+  top: 2px;
+}
+
+i.col-style {
+  color: #4267b2;
+}
+
+.upload label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.buttons {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.collage-frame {
+  min-width: 315px;
+  max-width: 315px;
+  flex-basis: 100%;
+}
+
+.collage {
+  background-color: #fff;
+  z-index: 30;
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2),
+    -3px -3px 6px rgba(255, 255, 255, 0.3),
+    inset 2px 2px 5px rgba(255, 255, 255, 0.3),
+    inset -2px -2px 5px rgba(0, 0, 0, 0.2);
+  border: 1px solid #4267b2;
+  border-radius: 4px;
+}
+
+@media all and (max-width: 1250px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 5%;
+  }
+
+  .collage-frame {
+    margin-top: 50px;
+  }
+
+  .controls__card {
+    flex-direction: row;
+    margin-bottom: 20px;
+    min-height: max-content;
+    justify-content: space-between;
+    min-width: 300px;
+    padding: 10px;
+  }
+
+  .controls__card div {
+    margin-left: 5px;
+  }
+
+  .controls__card div:first-child {
+    margin-left: 0px;
+  }
+
+  .buttons {
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .buttons button:first-child {
+    margin-bottom: 10px;
+  }
+}
+
+@keyframes button {
+  from {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(0.8, 0.8, 0.8);
+  }
+  to {
+    -webkit-transform: scale3d(1.1, 1.1, 1.1);
+    transform: scale3d(1.05, 1.05, 1.05);
+    transform: translateY(-1.5px);
+  }
+}
+button {
+  transition: 0.6s ease all;
+}
+button:focus {
+  animation: 0.4s button ease;
+}
