@@ -134,10 +134,16 @@ body {
 
 .message{
   margin-top: 10px;
+  text-align: center;
+  color: #4267b2;
+}
+.overlayResult .img img{
+  width: 100%;
 }
 
-.overlayResult img{
-  width: 70%;
+.overlayResult .img{
+  max-width: 70%;
+  max-height: 70%;
   margin: 10px;
 }
 

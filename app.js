@@ -1,7 +1,7 @@
 var share = document.getElementById('fbShare');
 let imageSize = document.getElementById('imageSize');
 let clear = document.getElementById('clear');
-let imageNum = 2;
+let imageNum = 5;
 var canvas = new fabric.Canvas('canvas');
 canvas.setHeight(315);
 canvas.setWidth(315);
