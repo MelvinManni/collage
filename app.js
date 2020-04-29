@@ -4,6 +4,7 @@ let imageNum = 2;
 var canvas = new fabric.Canvas('canvas');
 canvas.setHeight(315);
 canvas.setWidth(315);
+canvas.backgroundColor = "#fff";
 canvas.set({
   strokeWidth: 20,
   stroke: '#4267b2',

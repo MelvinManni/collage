@@ -173,7 +173,6 @@ i.col-style {
 }
 
 .collage {
-  background-color: #fff;
   z-index: 30;
     box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2),
     -3px -3px 6px rgba(255, 255, 255, 0.3),
