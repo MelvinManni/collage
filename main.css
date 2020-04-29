@@ -112,7 +112,7 @@ body {
   margin-top: 10px;
 }
 
-.overlayResult {
+.overlayResult, .overlayResult2 {
   margin: 0 auto;
   color: #000;
   padding: 10px;
@@ -149,6 +149,12 @@ body {
 
 #file {
   display: none;
+}
+
+.overlayResult2{
+  padding: 20px 10px;
+  height: max-content;
+  width: 100%;
 }
 
 .options {
