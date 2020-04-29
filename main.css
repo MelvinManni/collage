@@ -142,8 +142,8 @@ body {
 }
 
 .overlayResult .img{
-  max-width: 70%;
-  max-height: 70%;
+  max-width: 320px;
+  max-height: 320px;
   margin: 10px;
 }
 
