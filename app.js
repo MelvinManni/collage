@@ -1,5 +1,6 @@
 var share = document.getElementById('fbShare');
 let imageSize = document.getElementById('imageSize');
+let clear = document.getElementById('clear');
 let imageNum = 2;
 var canvas = new fabric.Canvas('canvas');
 canvas.setHeight(315);
@@ -14,7 +15,7 @@ document.getElementById('file').addEventListener(
   function (e) {
     let files = e.target.files;
     for (let i = 0; i < imageNum; i++) {
-      if (this.files && this.files[i]) {
+      if (files.length < 5) {
         var FR = new FileReader();
         FR.onload = function (e) {
           var img = new Image();
@@ -44,10 +45,15 @@ document.getElementById('file').addEventListener(
 
 document.getElementById('save').addEventListener('click', function (e) {
   var canvas = document.getElementById('canvas');
-  let a = canvas.toBlob(function (blob) {
+  canvas.toBlob(function (blob) {
     saveAs(blob, 'Image.png');
   });
 });
+
+
+clear.addEventListener('click', function(){
+    canvas.remove(...canvas.getObjects());
+})
 
 imageSize.addEventListener('change', function () {
   imageNum = parseInt(imageSize.nodeValue);
