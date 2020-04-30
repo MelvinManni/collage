@@ -28,6 +28,7 @@ let block = canvas.add(
   })
 );
 
+
 let text = canvas.add(
   new fabric.Text('#CovidFondBox #KuchCorona', {
     fontFamily: 'Delicious_500',
@@ -43,7 +44,6 @@ let text = canvas.add(
     lockMovementY: true,
   })
 );
-
 
 document.getElementById('file').addEventListener(
   'change',
@@ -67,6 +67,7 @@ document.getElementById('file').addEventListener(
             image.scaleToHeight(200);
             image.scaleToWidth(200);
             canvas.add(image);
+            image.sendToBack()
             canvas.renderAll();
           });
           img.src = e.target.result;
