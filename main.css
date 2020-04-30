@@ -100,19 +100,20 @@ body {
   transition: 0.4s ease all;
 }
 
-#overlayResult.close{
+#overlayResult.close {
   visibility: collapse;
 }
 
-#overlayResult.open{
+#overlayResult.open {
   visibility: visible;
 }
 
-#back{
+#back {
   margin-top: 10px;
 }
 
-.overlayResult, .overlayResult2 {
+.overlayResult,
+.overlayResult2 {
   margin: 0 auto;
   color: #000;
   padding: 10px;
@@ -131,27 +132,30 @@ body {
   align-items: center;
 }
 
-.message{
+.message {
   margin-top: 10px;
   text-align: center;
   color: #4267b2;
 }
-.overlayResult .img img{
-  width: 1005;
-  height: 300px;
+.overlayResult .img img {
+  width: 300px;
+  height: 260px;
 }
 
-.overlayResult .img{
-  max-width: 100%;
-  max-height: 300px;
+.overlayResult .img {
+  width: 100%;
+  height: 300px;
   margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #file {
   display: none;
 }
 
-.overlayResult2{
+.overlayResult2 {
   margin-top: 30px;
   padding: 20px 10px;
   height: max-content;
@@ -159,11 +163,11 @@ body {
 }
 
 .options {
-  padding: 10px;
+  padding: 5px;
   border-radius: 3px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.18),
     -3px -3px 6px rgba(255, 255, 255, 0.2), 2px 2px 5px rgba(255, 255, 255, 0.2),
@@ -242,6 +246,10 @@ i.col-style {
   width: 100%;
   display: flex;
   justify-content: space-between;
+}
+
+.buttons button:first-child {
+  margin-right: 5px;
 }
 
 .collage-frame {
@@ -339,5 +347,3 @@ button:focus {
   animation-name: zoomInUp;
   animation-duration: 0.8s;
 }
-
-

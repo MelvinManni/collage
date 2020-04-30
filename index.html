@@ -24,14 +24,6 @@
           <div class="controls">
             <div class="controls__card">
               <div class="options">
-                <select name="imageSize" id="imageSize">
-                  <option value="2">Collage Number</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                </select>
-
                 <button class="toggle" id="clear">
                   <i class="col-style">
                     <svg
@@ -50,7 +42,7 @@
                       ></path>
                     </svg>
                   </i>
-                  Clear Images
+                  Clear
                 </button>
               </div>
 
@@ -106,39 +98,26 @@
                   </i>
                   Save
                 </button>
-
-                <div
-                  class="fb-share-button"
-                  data-href="https://cool-collage.netlify.app/"
-                  data-layout="button"
-                  data-size="large"
-                >
-                  <a
-                    target="_blank"
-                    href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fcool-collage.netlify.app%2F&amp;src=sdkpreparse"
-                    class="fb-xfbml-parse-ignore"
-                    ><button class="btn">
-                      <i class="save" id="fbShare">
-                        <svg
-                          aria-hidden="true"
-                          focusable="false"
-                          data-prefix="fab"
-                          data-icon="facebook-square"
-                          class="svg-inline--fa fa-facebook-square fa-w-14"
-                          role="img"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 448 512"
-                        >
-                          <path
-                            fill="currentColor"
-                            d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h137.25V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.27c-30.81 0-40.42 19.12-40.42 38.73V256h68.78l-11 71.69h-57.78V480H400a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48z"
-                          ></path>
-                        </svg>
-                      </i>
-                      Share
-                    </button></a
-                  >
-                </div>
+                <button class="btn">
+                  <i class="save" id="fbShare">
+                    <svg
+                      aria-hidden="true"
+                      focusable="false"
+                      data-prefix="fab"
+                      data-icon="facebook-square"
+                      class="svg-inline--fa fa-facebook-square fa-w-14"
+                      role="img"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 448 512"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h137.25V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.27c-30.81 0-40.42 19.12-40.42 38.73V256h68.78l-11 71.69h-57.78V480H400a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48z"
+                      ></path>
+                    </svg>
+                  </i>
+                  Share
+                </button>
               </div>
             </div>
           </div>
@@ -168,6 +147,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/3.6.3/fabric.min.js"></script>
     <script src="http://cdn.jsdelivr.net/g/filesaver.js"></script>
+    <script
+      async
+      defer
+      src="https://connect.facebook.net/en_US/sdk.js"
+    ></script>
     <script src="./app.js"></script>
   </body>
 </html>
