@@ -102,6 +102,41 @@ document.getElementById('back').addEventListener('click', function (e) {
 
 clear.addEventListener('click', function () {
   canvas.remove(...canvas.getObjects());
+  let block = canvas.add(
+    new fabric.Rect({
+      left: 0,
+      top: 0,
+      fill: '#fff',
+      width: 153,
+      height: 20,
+      rx: 2,
+      ry: 2,
+      hasBorders: false,
+      hasControls: false,
+      hasRotatingPoint: false,
+      lockMovementX: true,
+      lockMovementY: true,
+    })
+  );
+
+
+  let text = canvas.add(
+    new fabric.Text('#CovidFondBox #KuchCorona', {
+      fontFamily: 'Delicious_500',
+      left: 5,
+      top: 5,
+      fontSize: 11,
+      textAlign: 'left',
+      fill: '#4267b2',
+      hasBorders: false,
+      hasControls: false,
+      hasRotatingPoint: false,
+      lockMovementX: true,
+      lockMovementY: true,
+    })
+  );
+
+
 });
 
 share.addEventListener('click', sharefbimage);
