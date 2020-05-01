@@ -34,7 +34,10 @@ document.getElementById('file').addEventListener(
           });
           img.src = e.target.result;
         };
-        FR.readAsDataURL(this.files[i]);
+        if (e.target.files && e.target.files[i]){
+          FR.readAsDataURL(this.files[i]);
+        }
+
       }
     }
   },
