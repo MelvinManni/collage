@@ -6,10 +6,6 @@ var canvas = new fabric.Canvas('canvas');
 canvas.setHeight(315);
 canvas.setWidth(315);
 canvas.backgroundColor = '#ffdf00';
-canvas.set({
-  strokeWidth: 10,
-  stroke: '#4267b2',
-});
 
 document.getElementById('file').addEventListener(
   'change',
@@ -30,8 +26,8 @@ document.getElementById('file').addEventListener(
               strokeWidth: 5,
               stroke: '#fff',
             });
-            image.scaleToHeight(200);
-            image.scaleToWidth(200);
+            image.scaleToHeight(280);
+            image.scaleToWidth(280);
             canvas.add(image);
             image.sendToBack();
             canvas.renderAll();
@@ -46,7 +42,6 @@ document.getElementById('file').addEventListener(
 );
 
 document.getElementById('save').addEventListener('click', function (e) {
-
   canvas.discardActiveObject();
   canvas.renderAll();
   let block = canvas.add(
@@ -95,25 +90,74 @@ document.getElementById('save').addEventListener('click', function (e) {
       // image.height = canvas.height;
       // overlayResult.className = 'open zoomInUp';
 
-      downloadURI(image, 'image.png')
+      downloadURI(image, 'image');
     }
-  }, 500);
-});
-
-document.getElementById('back').addEventListener('click', function (e) {
-  var overlayResult = document.getElementById('overlayResult');
-  overlayResult.className = 'close';
+  }, 400);
 });
 
 clear.addEventListener('click', function () {
   canvas.remove(...canvas.getObjects());
 });
 
-// share.addEventListener('click', function () {
-//   let src = canvas.toDataURL('image/jpeg', 0.9);
-// });
+share.addEventListener('click', function () {
+  console.log('HE');
+
+  let src = canvas.toDataURL('image/jpeg', 0.9);
+
+  var accessToken;
+  FB.init({
+    appId: '550217352560581',
+    status: true,
+    cookie: true,
+    oauth: true,
+    xfbml: true,
+  });
+  FB.getLoginStatus(function (response) {
+    if (response.status == 'connected') {
+      accessToken = response.authResponse.accessToken;
+      doSomething();
+    } else {
+      FB.login(
+        function (response) {
+          if (response.status == 'connected') {
+            accessToken = response.authResponse.accessToken;
+            doSomething();
+          } else {
+            alert('Bye.');
+          }
+        },
+        {
+          scope:
+            'publish_stream,user_photos,friends_photos,user_photo_video_tags,friends_photo_video_tags',
+        }
+      );
+    }
+  });
+
+  // CHOOSE WHAT YOU WANT TO DO. THIS FUNCTION IS CALLED AUTOMATICALLY ON PAGE LOADING
+  function doSomething() {
+    postImage1();
+  }
+  // POST A IMAGE WITH DIALOG using FB.api
+  function postImage1() {
+    var wallPost = {
+      message: 'Test to post a photo',
+      picture:
+        'http://www.photographyblogger.net/wp-content/uploads/2010/05/flower29.jpg',
+    };
+    FB.api('/me/feed', 'post', wallPost, function (response) {
+      if (!response || response.error) {
+        alert(
+          'Failure! ' + response.status + ' You may logout once and try again'
+        );
+      } else {
+        alert('Success! Post ID: ' + response);
+      }
+    });
+  }
+});
 function downloadURI(uri, name) {
-  var link = document.createElement("a");
+  var link = document.createElement('a');
   link.download = name;
   link.href = uri;
   link.click();
