@@ -127,8 +127,7 @@ share.addEventListener('click', function () {
           }
         },
         {
-          scope:
-            'publish_stream,user_photos,friends_photos,user_photo_video_tags,friends_photo_video_tags',
+          scope: 'publish_stream,user_photos',
         }
       );
     }
