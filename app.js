@@ -27,8 +27,8 @@ document.getElementById('file').addEventListener(
             image.set({
               left: spacedX,
               top: spacedY,
-              strokeWidth: 20,
-              stroke: '#4267b2',
+              strokeWidth: 5,
+              stroke: '#fff',
             });
             image.scaleToHeight(200);
             image.scaleToWidth(200);
@@ -88,14 +88,16 @@ document.getElementById('save').addEventListener('click', function (e) {
     });
 
     if (window.innerWidth <= 800) {
-      var image = document.getElementById('image');
-      var overlayResult = document.getElementById('overlayResult');
-      image.src = canvas.toDataURL('image/jpeg', 0.9);
-      image.width = canvas.width;
-      image.height = canvas.height;
-      overlayResult.className = 'open zoomInUp';
+      // var image = document.getElementById('image');
+      // var overlayResult = document.getElementById('overlayResult');
+      let image = canvas.toDataURL('image/png');
+      // image.width = canvas.width;
+      // image.height = canvas.height;
+      // overlayResult.className = 'open zoomInUp';
+
+      downloadURI(image, 'image.png')
     }
-  }, 1000);
+  }, 500);
 });
 
 document.getElementById('back').addEventListener('click', function (e) {
@@ -107,6 +109,12 @@ clear.addEventListener('click', function () {
   canvas.remove(...canvas.getObjects());
 });
 
-share.addEventListener('click', function () {
-  let src = canvas.toDataURL('image/jpeg', 0.9);
-});
+// share.addEventListener('click', function () {
+//   let src = canvas.toDataURL('image/jpeg', 0.9);
+// });
+function downloadURI(uri, name) {
+  var link = document.createElement("a");
+  link.download = name;
+  link.href = uri;
+  link.click();
+}
