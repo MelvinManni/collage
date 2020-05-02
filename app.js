@@ -105,24 +105,12 @@ clear.addEventListener('click', function () {
 });
 
 share.addEventListener('click', function () {
-  var link = document.createElement('a');
-  link.download = name;
-  link.href = canvas.toDataURL();
 
-  let metaImg = document.createElement('meta');
-  let metalink = document.createElement('meta');
-  metaImg.setAttribute('property', 'og:image')
-  metaImg.setAttribute('content', `${canvas.toDataURL('image')}`)
-
-  //LINK
-  metaImg.setAttribute('property', 'og:image')
-  let icon = './icon.png'
 
   var fakeLink = document.createElement('a');
-  fakeLink.setAttribute('href', `whatsapp://send?text=${icon}`)
+  fakeLink.setAttribute('href', 'whatsapp://send?text=' + encodeURIComponent('./icon.png'));
   fakeLink.setAttribute('data-action', 'share/whatsapp/share');
   fakeLink.click();
-
   // let src = canvas.toDataURL('image/jpeg', 0.9);
 
   // var accessToken;
