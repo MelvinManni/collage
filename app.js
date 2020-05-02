@@ -107,8 +107,7 @@ share.addEventListener('click', function () {
   var fakeLink = document.createElement('a');
   fakeLink.setAttribute(
     'href',
-    'whatsapp://send?text=' +
-      'https://lh3.googleusercontent.com/proxy/JULFgE25yzVBJoYp9uJpKnwhveo8FPhnRIMzZyhnDXg41O10qVmsr47Tccp4rzyAa8IDmi8yMJw8Uq1uOchKLUTtgFnEQS1u9bNNPG98knAVjKQ0mbS7nwwRM1vbTm7yJaA9eNa9i9IVUOfF-tRqzX2awXcHtg'
+    'whatsapp://send?text=https://s3.amazonaws.com/tinycards/image/0c771449acaecb388c58d8805d966f61'
   );
   fakeLink.setAttribute('data-action', 'share/whatsapp/share');
   fakeLink.click();
