@@ -33,10 +33,9 @@ document.getElementById('file').addEventListener(
           });
           img.src = e.target.result;
         };
-        if (e.target.files && e.target.files[i]){
+        if (e.target.files && e.target.files[i]) {
           FR.readAsDataURL(this.files[i]);
         }
-
       }
     }
   },
@@ -105,10 +104,14 @@ clear.addEventListener('click', function () {
 });
 
 share.addEventListener('click', function () {
-
-
   var fakeLink = document.createElement('a');
-  fakeLink.setAttribute('href', 'whatsapp://send?text=' + encodeURIComponent('./icon.png'));
+  fakeLink.setAttribute(
+    'href',
+    'whatsapp://send?text=' +
+      encodeURIComponent(
+        'https://lh3.googleusercontent.com/proxy/JULFgE25yzVBJoYp9uJpKnwhveo8FPhnRIMzZyhnDXg41O10qVmsr47Tccp4rzyAa8IDmi8yMJw8Uq1uOchKLUTtgFnEQS1u9bNNPG98knAVjKQ0mbS7nwwRM1vbTm7yJaA9eNa9i9IVUOfF-tRqzX2awXcHtg'
+      )
+  );
   fakeLink.setAttribute('data-action', 'share/whatsapp/share');
   fakeLink.click();
   // let src = canvas.toDataURL('image/jpeg', 0.9);
