@@ -6,7 +6,7 @@ var canvas = new fabric.Canvas('canvas');
 canvas.setHeight(315);
 canvas.setWidth(315);
 canvas.backgroundColor = '#ffdf00';
-
+canvas.enableRetinaScaling = true;
 document.getElementById('file').addEventListener(
   'change',
   function (e) {
@@ -23,8 +23,7 @@ document.getElementById('file').addEventListener(
             image.set({
               left: spacedX,
               top: spacedY,
-              strokeWidth: 5,
-              stroke: '#fff',
+              strokeWidth: 0,
             });
             image.scaleToHeight(280);
             image.scaleToWidth(280);
@@ -61,6 +60,7 @@ document.getElementById('save').addEventListener('click', function (e) {
       hasRotatingPoint: false,
       lockMovementX: true,
       lockMovementY: true,
+      strokeWidth: 0,
     })
   );
 
@@ -71,6 +71,7 @@ document.getElementById('save').addEventListener('click', function (e) {
       top: 5,
       fontSize: 11,
       textAlign: 'left',
+      strokeWidth: 0,
       fill: '#4267b2',
       hasBorders: false,
       hasControls: false,
@@ -80,15 +81,16 @@ document.getElementById('save').addEventListener('click', function (e) {
     })
   );
 
+  canvas.enableRetinaScaling = true;
   setTimeout(() => {
     document.getElementById('canvas').toBlob(function (blob) {
-      saveAs(blob, 'Image.png');
+      saveAs(blob, 'image');
     });
 
     if (window.innerWidth <= 800) {
       // var image = document.getElementById('image');
       // var overlayResult = document.getElementById('overlayResult');
-      let image = canvas.toDataURL('image/png');
+      let image = canvas.toDataURL();
       // image.width = canvas.width;
       // image.height = canvas.height;
       // overlayResult.className = 'open zoomInUp';
@@ -103,38 +105,43 @@ clear.addEventListener('click', function () {
 });
 
 share.addEventListener('click', function () {
-  console.log('HE');
 
-  let src = canvas.toDataURL('image/jpeg', 0.9);
+  var fakeLink = document.createElement('a');
+  fakeLink.setAttribute('href', 'whatsapp://send?text=' + encodeURIComponent(canvas.toDataURL('image'/'png')));
+  fakeLink.setAttribute('data-action', 'share/whatsapp/share');
+  fakeLink.click();
+  // console.log('HE');
 
-  var accessToken;
-  FB.init({
-    appId: '550217352560581',
-    status: true,
-    cookie: true,
-    oauth: true,
-    xfbml: true,
-  });
-  FB.getLoginStatus(function (response) {
-    if (response.status == 'connected') {
-      accessToken = response.authResponse.accessToken;
-      doSomething();
-    } else {
-      FB.login(
-        function (response) {
-          if (response.status == 'connected') {
-            accessToken = response.authResponse.accessToken;
-            doSomething();
-          } else {
-            alert('Bye.');
-          }
-        },
-        {
-          scope: 'publish_stream,user_photos',
-        }
-      );
-    }
-  });
+  // let src = canvas.toDataURL('image/jpeg', 0.9);
+
+  // var accessToken;
+  // FB.init({
+  //   appId: '550217352560581',
+  //   status: true,
+  //   cookie: true,
+  //   oauth: true,
+  //   xfbml: true,
+  // });
+  // FB.getLoginStatus(function (response) {
+  //   if (response.status == 'connected') {
+  //     accessToken = response.authResponse.accessToken;
+  //     doSomething();
+  //   } else {
+  //     FB.login(
+  //       function (response) {
+  //         if (response.status == 'connected') {
+  //           accessToken = response.authResponse.accessToken;
+  //           doSomething();
+  //         } else {
+  //           alert('Bye.');
+  //         }
+  //       },
+  //       {
+  //         scope: 'publish_stream,user_photos',
+  //       }
+  //     );
+  //   }
+  // });
 
   // CHOOSE WHAT YOU WANT TO DO. THIS FUNCTION IS CALLED AUTOMATICALLY ON PAGE LOADING
   function doSomething() {
