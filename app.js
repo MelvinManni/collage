@@ -110,11 +110,16 @@ share.addEventListener('click', function () {
   link.href = canvas.toDataURL();
 
   let metaImg = document.createElement('meta');
+  let metalink = document.createElement('meta');
   metaImg.setAttribute('property', 'og:image')
   metaImg.setAttribute('content', `${canvas.toDataURL('image')}`)
 
+  //LINK
+  metaImg.setAttribute('property', 'og:image')
+  let icon = './icon.png'
+
   var fakeLink = document.createElement('a');
-  fakeLink.setAttribute('href', 'whatsapp://send?text=' + encodeURIComponent('hi'));
+  fakeLink.setAttribute('href', `whatsapp://send?text=${icon}`)
   fakeLink.setAttribute('data-action', 'share/whatsapp/share');
   fakeLink.click();
 
