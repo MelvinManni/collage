@@ -109,11 +109,14 @@ share.addEventListener('click', function () {
   link.download = name;
   link.href = canvas.toDataURL();
 
+  let metaImg = document.createElement('meta');
+  metaImg.setAttribute('property', 'og:image')
+  metaImg.setAttribute('content', `${canvas.toDataURL('image')}`)
+
   var fakeLink = document.createElement('a');
-  fakeLink.setAttribute('href', 'whatsapp://send?text=' + encodeURIComponent(link));
+  fakeLink.setAttribute('href', 'whatsapp://send?text=' + encodeURIComponent('hi'));
   fakeLink.setAttribute('data-action', 'share/whatsapp/share');
   fakeLink.click();
-  // console.log('HE');
 
   // let src = canvas.toDataURL('image/jpeg', 0.9);
 
