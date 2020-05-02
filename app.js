@@ -108,9 +108,7 @@ share.addEventListener('click', function () {
   fakeLink.setAttribute(
     'href',
     'whatsapp://send?text=' +
-      encodeURIComponent(
-        'https://lh3.googleusercontent.com/proxy/JULFgE25yzVBJoYp9uJpKnwhveo8FPhnRIMzZyhnDXg41O10qVmsr47Tccp4rzyAa8IDmi8yMJw8Uq1uOchKLUTtgFnEQS1u9bNNPG98knAVjKQ0mbS7nwwRM1vbTm7yJaA9eNa9i9IVUOfF-tRqzX2awXcHtg'
-      )
+      'https://lh3.googleusercontent.com/proxy/JULFgE25yzVBJoYp9uJpKnwhveo8FPhnRIMzZyhnDXg41O10qVmsr47Tccp4rzyAa8IDmi8yMJw8Uq1uOchKLUTtgFnEQS1u9bNNPG98knAVjKQ0mbS7nwwRM1vbTm7yJaA9eNa9i9IVUOfF-tRqzX2awXcHtg'
   );
   fakeLink.setAttribute('data-action', 'share/whatsapp/share');
   fakeLink.click();
