@@ -1,12 +1,26 @@
 var share = document.getElementById('share');
 let imageSize = document.getElementById('imageSize');
 let clear = document.getElementById('clear');
+let canvasColor = document.getElementById('canvasColor');
+let ratio = document.getElementById('ratio');
+let border = document.getElementById('borderClick');
+let check = document.getElementById('border');
+
 let imageNum = 5;
+let cSizing = 315;
+let borderArr = [];
+
+if (window.innerWidth >= 360) {
+  cSizing = 355;
+} else if (window.innerWidth >= 420) {
+  cSizing = 415;
+} else cSizing = 315;
+
 var canvas = new fabric.Canvas('canvas');
-canvas.setHeight(315);
-canvas.setWidth(315);
-canvas.backgroundColor = '#ffdf00';
-canvas.enableRetinaScaling = true;
+canvas.setHeight(cSizing);
+canvas.setWidth(cSizing);
+canvas.backgroundColor = 'yellow';
+
 document.getElementById('file').addEventListener(
   'change',
   function (e) {
@@ -24,12 +38,15 @@ document.getElementById('file').addEventListener(
               left: spacedX,
               top: spacedY,
               strokeWidth: 0,
+              stroke:'#fff'
             });
             image.scaleToHeight(280);
             image.scaleToWidth(280);
             canvas.add(image);
             image.sendToBack();
             canvas.renderAll();
+
+            borderArr.push(image);
           });
           img.src = e.target.result;
         };
@@ -103,70 +120,62 @@ clear.addEventListener('click', function () {
   canvas.remove(...canvas.getObjects());
 });
 
-share.addEventListener('click', function () {
-  var fakeLink = document.createElement('a');
-  fakeLink.setAttribute(
-    'href',
-    'whatsapp://send?text=https://s3.amazonaws.com/tinycards/image/0c771449acaecb388c58d8805d966f61'
-  );
-  fakeLink.setAttribute('data-action', 'share/whatsapp/share');
-  fakeLink.click();
-  // let src = canvas.toDataURL('image/jpeg', 0.9);
+canvasColor.addEventListener('change', function (e) {
+  canvas.backgroundColor = e.target.value;
+  canvas.renderAll();
+});
 
-  // var accessToken;
-  // FB.init({
-  //   appId: '550217352560581',
-  //   status: true,
-  //   cookie: true,
-  //   oauth: true,
-  //   xfbml: true,
-  // });
-  // FB.getLoginStatus(function (response) {
-  //   if (response.status == 'connected') {
-  //     accessToken = response.authResponse.accessToken;
-  //     doSomething();
-  //   } else {
-  //     FB.login(
-  //       function (response) {
-  //         if (response.status == 'connected') {
-  //           accessToken = response.authResponse.accessToken;
-  //           doSomething();
-  //         } else {
-  //           alert('Bye.');
-  //         }
-  //       },
-  //       {
-  //         scope: 'publish_stream,user_photos',
-  //       }
-  //     );
-  //   }
-  // });
+ratio.addEventListener('change', (e) => {
+  switch (e.target.value) {
+    case '1:1':
+      canvas.setHeight(cSizing);
+      canvas.setWidth(cSizing);
+      break;
+    case '3:2':
+      canvas.setHeight(cSizing / 1.5);
+      canvas.setWidth(cSizing);
+      break;
+    case '1:2':
+      canvas.setHeight(cSizing);
+      canvas.setWidth(cSizing / 2);
+      break;
+    case '16:9':
+      canvas.setHeight(cSizing / 1.7);
+      canvas.setWidth(cSizing);
+      break;
+    case '9:16':
+      canvas.setHeight(cSizing);
+      canvas.setWidth(cSizing / 1.7);
+      break;
 
-  // CHOOSE WHAT YOU WANT TO DO. THIS FUNCTION IS CALLED AUTOMATICALLY ON PAGE LOADING
-  function doSomething() {
-    postImage1();
+    default:
+      canvas.setHeight(cSizing);
+      canvas.setWidth(cSizing);
+      break;
   }
-  // POST A IMAGE WITH DIALOG using FB.api
-  function postImage1() {
-    var wallPost = {
-      message: 'Test to post a photo',
-      picture:
-        'http://www.photographyblogger.net/wp-content/uploads/2010/05/flower29.jpg',
-    };
-    FB.api('/me/feed', 'post', wallPost, function (response) {
-      if (!response || response.error) {
-        alert(
-          'Failure! ' + response.status + ' You may logout once and try again'
-        );
-      } else {
-        alert('Success! Post ID: ' + response);
-      }
+
+  canvas.renderAll();
+});
+
+border.addEventListener('click', (e) => {
+  if (check.checked){
+    borderArr.map((item) => {
+      item.strokeWidth = 10
+    });
+  } else{
+    borderArr.map((item) => {
+      item.strokeWidth = 0
     });
   }
+  canvas.renderAll();
 });
-function downloadURI(uri, name) {
-  var link = document.createElement('a');
-  link.download = name;
-  link.href = uri;
-  link.click();
-}
+
+document.getElementById('stroke').addEventListener('change', (e)=>{
+  if (e.target.value !== ''){
+    check.checked = true;
+    borderArr.map((item) => {
+      item.strokeWidth = parseInt(e.target.value)
+    });
+    canvas.renderAll();
+  }
+})
