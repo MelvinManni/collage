@@ -102,7 +102,7 @@ body {
 }
 
 .border {
-  justify-content: space-between;
+  justify-content: space-between; 
 }
 
 select{
@@ -112,7 +112,7 @@ select{
 
 label img {
   padding-left: 3px;
-}
+} 
 
 #canvasColor,
 #border,

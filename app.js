@@ -7,13 +7,15 @@ let border = document.getElementById('borderClick');
 let check = document.getElementById('border');
 
 let imageNum = 5;
-let cSizing = 315;
+let cSizing;
 let borderArr = [];
 
-if (window.innerWidth >= 360) {
+if (window.innerWidth >= 360 && window.innerWidth <= 420) {
   cSizing = 355;
-} else if (window.innerWidth >= 420) {
-  cSizing = 415;
+} else if (window.innerWidth >= 420 && window.innerWidth <= 764) {
+  cSizing = 410;
+} else if (window.innerWidth >= 764) {
+  cSizing = 470;
 } else cSizing = 315;
 
 var canvas = new fabric.Canvas('canvas');
@@ -38,7 +40,7 @@ document.getElementById('file').addEventListener(
               left: spacedX,
               top: spacedY,
               strokeWidth: 0,
-              stroke:'#fff'
+              stroke: '#fff',
             });
             image.scaleToHeight(280);
             image.scaleToWidth(280);
@@ -67,7 +69,7 @@ document.getElementById('save').addEventListener('click', function (e) {
       left: 0,
       top: 0,
       fill: '#fff',
-      width: 153,
+      width: 160,
       height: 20,
       rx: 2,
       ry: 2,
@@ -99,22 +101,18 @@ document.getElementById('save').addEventListener('click', function (e) {
 
   canvas.enableRetinaScaling = true;
   setTimeout(() => {
-    document.getElementById('canvas').toBlob(function (blob) {
-      saveAs(blob, 'image');
-    });
+    let image = canvas.toDataURL();
 
-    if (window.innerWidth <= 800) {
-      // var image = document.getElementById('image');
-      // var overlayResult = document.getElementById('overlayResult');
-      let image = canvas.toDataURL();
-      // image.width = canvas.width;
-      // image.height = canvas.height;
-      // overlayResult.className = 'open zoomInUp';
-
-      downloadURI(image, 'image');
-    }
+    downloadURI(image, 'image');
   }, 400);
 });
+
+function downloadURI(uri, name) {
+  var link = document.createElement('a');
+  link.download = name;
+  link.href = uri;
+  link.click();
+}
 
 clear.addEventListener('click', function () {
   canvas.remove(...canvas.getObjects());
@@ -158,24 +156,24 @@ ratio.addEventListener('change', (e) => {
 });
 
 border.addEventListener('click', (e) => {
-  if (check.checked){
+  if (check.checked) {
     borderArr.map((item) => {
-      item.strokeWidth = 10
+      item.strokeWidth = 10;
     });
-  } else{
+  } else {
     borderArr.map((item) => {
-      item.strokeWidth = 0
+      item.strokeWidth = 0;
     });
   }
   canvas.renderAll();
 });
 
-document.getElementById('stroke').addEventListener('change', (e)=>{
-  if (e.target.value !== ''){
+document.getElementById('stroke').addEventListener('change', (e) => {
+  if (e.target.value !== '') {
     check.checked = true;
     borderArr.map((item) => {
-      item.strokeWidth = parseInt(e.target.value)
+      item.strokeWidth = parseInt(e.target.value);
     });
     canvas.renderAll();
   }
-})
+});
