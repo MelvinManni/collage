@@ -102,7 +102,7 @@ document.getElementById('save').addEventListener('click', function (e) {
   canvas.enableRetinaScaling = true;
   setTimeout(() => {
     let image = canvas.toDataURL({
-      pixelRatio: 2
+      pixelRatio: 3
     });
 
     downloadURI(image, 'image');
