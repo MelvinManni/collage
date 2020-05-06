@@ -8,6 +8,7 @@ let check = document.getElementById('border');
 
 let imageNum = 5;
 let cSizing;
+let multiplier;
 let borderArr = [];
 
 if (window.innerWidth >= 360 && window.innerWidth <= 420) {
@@ -17,6 +18,10 @@ if (window.innerWidth >= 360 && window.innerWidth <= 420) {
 } else if (window.innerWidth >= 764) {
   cSizing = 470;
 } else cSizing = 315;
+
+if (window.innerWidth <= 1024) {
+  multiplier = 2;
+} else multiplier = 4;
 
 var canvas = new fabric.Canvas('canvas');
 canvas.setHeight(cSizing);
@@ -104,7 +109,7 @@ document.getElementById('save').addEventListener('click', function (e) {
     let image = canvas.toDataURL({
       pixelRatio: 3,
       format: 'png',
-      multiplier: 4,
+      multiplier: multiplier,
     });
 
     downloadURI(image, 'image');
