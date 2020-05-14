@@ -118,7 +118,7 @@ document.getElementById('save').addEventListener('click', function (e) {
       multiplier: multiplier,
     });
 
-    downloadURI(image, 'image');
+    downloadURI(image, 'fondbox collage');
   }, 400);
 });
 
