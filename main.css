@@ -284,6 +284,10 @@ i.col-style {
 
 #canvas_container{
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
 }
 
 .custom.controls .controls__card {
