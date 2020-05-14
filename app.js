@@ -13,10 +13,16 @@ let borderArr = [];
 
 if (window.innerWidth >= 360 && window.innerWidth <= 420) {
   cSizing = 355;
-} else if (window.innerWidth >= 420 && window.innerWidth <= 764) {
+} else if (window.innerWidth >= 420 && window.innerWidth <= 564) {
   cSizing = 410;
-} else if (window.innerWidth >= 764) {
+} else if (window.innerWidth >= 564 && window.innerWidth <= 764) {
   cSizing = 470;
+} else if (window.innerWidth >= 764 && window.innerWidth <= 1024) {
+  cSizing = 600;
+} else if (window.innerWidth >= 1024 && window.innerWidth <= 1500) {
+  cSizing = 764;
+} else if (window.innerWidth >= 1500) {
+  cSizing = 1024;
 } else cSizing = 315;
 
 if (window.innerWidth <= 1024) {

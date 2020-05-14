@@ -51,19 +51,20 @@ body {
 
 .container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-evenly;
   min-height: 100vh;
   padding: 50px;
+  width: 100%;
 }
 
 .controls__card {
   color: #000;
   min-width: max-content;
   padding: 20px 30px;
-  min-height: 350px;
+  min-height: max-content;
   border-radius: 3px;
   background: rgba(255, 255, 255, 0.594);
   box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2),
@@ -71,9 +72,12 @@ body {
     inset 2px 2px 5px rgba(255, 255, 255, 0.3),
     inset -2px -2px 5px rgba(0, 0, 0, 0.2);
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  align-self: center;
+  justify-self: center;
+  position: relative;
 }
 
 .custom.controls .controls__card {
@@ -87,7 +91,8 @@ body {
 
 .color label,
 #ratio,
-.border, #stroke {
+.border,
+#stroke {
   /* min-width: 100%; */
   /* max-width: max-content; */
   font-size: 13px;
@@ -98,21 +103,22 @@ body {
   border-radius: 3px;
   padding: 3px;
   margin-right: 5px;
+
   cursor: pointer;
 }
 
 .border {
-  justify-content: space-between; 
+  justify-content: space-between;
 }
 
-select{
+select {
   font-size: 14px;
   padding: 2px !important;
 }
 
 label img {
   padding-left: 3px;
-} 
+}
 
 #canvasColor,
 #border,
@@ -174,7 +180,7 @@ label img {
   padding: 5px;
   border-radius: 3px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.18),
@@ -263,22 +269,27 @@ i.col-style {
 }
 
 .collage-frame {
-  /* min-width: 315px; */
-  flex-basis: 100%;
-
-  /* display: flex;
+  display: flex;
   justify-content: center;
-  align-items: center; */
 }
 
-.collage{
-    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2),
+#canvas {
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2),
     -3px -3px 6px rgba(255, 255, 255, 0.3),
     inset 2px 2px 5px rgba(255, 255, 255, 0.3),
     inset -2px -2px 5px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
+  position: relative;
 }
 
+#canvas_container{
+  position: relative;
+}
+
+.custom.controls .controls__card {
+  min-height: max-content;
+  margin: 20px;
+}
 
 @media all and (max-width: 1250px) {
   .container {
@@ -300,11 +311,6 @@ i.col-style {
     justify-content: space-between;
     min-width: 300px;
     padding: 10px;
-  }
-
-  .custom.controls .controls__card{
-    min-height: fit-content;
-    flex-wrap: wrap;
   }
 
   .controls__card div {
