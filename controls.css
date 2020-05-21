@@ -1,0 +1,215 @@
+.dk-panel {
+  margin: 20px auto;
+}
+.tab {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  width: 100% !important;
+  border-radius: 5px 5px 0 0;
+  height: max-content;
+  padding: 5px;
+  margin: 0 auto;
+}
+
+/* Style the buttons inside the tab */
+.tab button, .tab label {
+  background-color: inherit;
+  border: 1px solid #ccc;
+  color: #121212a7;
+  outline: none;
+  /* cursor: pointer; */
+  padding: 5px;
+  transition: 0.3s;
+  font-size: 14px;
+  border-radius: 3px;
+  width: 70px !important;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 10px;
+}
+
+.contentBtn {
+  background-color: inherit;
+  border: 1px solid #ccc;
+  color: #121212a7;
+  outline: none;
+  cursor: pointer;
+  padding: 5px;
+  transition: 0.3s;
+  font-size: 14px;
+  border-radius: 3px;
+  width: 50px !important;
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 10px;
+}
+
+.contentBtn p.text {
+  margin-top: 5px;
+  font-family: 'Inconsolata';
+  font-size: 12px;
+}
+
+.tab button p.text, .tab label p.text {
+  margin-top: 5px;
+  font-family: 'Inconsolata';
+  font-size: 12px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  color: #4267b2;
+  border-color: #4267b2;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  color: #4267b2;
+  border-color: #4267b2;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+/* Style the tab content */
+.tabcontent {
+  padding: 6px 12px;
+  border-top: none;
+  transition: 0.6s ease all;
+  animation: 0.9s fadeIn forwards;
+  padding: 10px 20px;
+  background-color: rgba(204, 204, 204, 0.122);
+  border-radius: 0 0 5px 5px;
+  width: max-content;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.aspectBtn {
+  position: relative;
+}
+
+.aspectBtn p {
+  position: absolute;
+  font-size: 10px;
+  bottom: 18px;
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 700;
+}
+
+.aspectBtn:hover,
+.aspectBtn:active {
+  color: #4267b2;
+  border-color: #4267b2;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@media all and (max-width: 520px) {
+  .tab,
+  .tabcontent {
+    overflow-x: scroll;
+  }
+}
+
+/* ===COLOR PICKER/// */
+
+.color-wrapper {
+  position: relative;
+  z-index: 20;
+  height: 29px;
+  width: max-content;
+}
+
+input.call-picker, input.call-textPicker {
+  border: 1px solid #aaa;
+  color: #666;
+  text-transform: uppercase;
+  outline: none;
+  padding: 5px;
+  height: 29px;
+  text-transform: uppercase;
+  width: 70px;
+}
+
+.color-picker {
+  width: 130px;
+  background: #f3f3f3;
+  height: 81px;
+  padding: 5px;
+  border: 5px solid #fff;
+  box-shadow: 0px 0px 3px 1px #ddd;
+  position: absolute;
+  top: -60px;
+  left: 2px;
+  z-index: 50000;
+}
+
+.color-holder, .textColor-holder {
+  background: yellow;
+  cursor: pointer;
+  border: 1px solid #aaa;
+  width: 29px;
+  height: 29px;
+  margin-left: 5px;
+  border-radius: 3px;
+}
+
+.color-picker .color-item {
+  cursor: pointer;
+  width: 10px;
+  height: 10px;
+  list-style-type: none;
+  float: left;
+  margin: 2px;
+  border: 1px solid #ddd;
+}
+
+.color-item {
+  z-index: 10000;
+}
+
+.color-picker .color-item:hover {
+  border: 1px solid #666;
+  opacity: 0.8;
+  -moz-opacity: 0.8;
+  filter: alpha(opacity=8);
+}
+
+.caption{
+    width: 90px;
+}
+
+.caption::placeholder{
+    font-family: 'Inconsolata';
+    font-size: 12px;
+}
+
+.collapse{
+    display: none;
+}
+
+
+.seperator{
+    margin: 50px 0;
+}

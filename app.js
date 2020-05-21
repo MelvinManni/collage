@@ -1,7 +1,7 @@
 var share = document.getElementById('share');
 let imageSize = document.getElementById('imageSize');
 let clear = document.getElementById('clear');
-let canvasColor = document.getElementById('canvasColor');
+let canvasColor = document.getElementById('backgroundColor');
 let ratio = document.getElementById('ratio');
 let border = document.getElementById('borderClick');
 let check = document.getElementById('border');
@@ -12,17 +12,17 @@ let multiplier;
 let borderArr = [];
 
 if (window.innerWidth >= 360 && window.innerWidth <= 420) {
-  cSizing = 355;
+  cSizing = 340;
 } else if (window.innerWidth >= 420 && window.innerWidth <= 564) {
-  cSizing = 410;
+  cSizing = 380;
 } else if (window.innerWidth >= 564 && window.innerWidth <= 764) {
-  cSizing = 470;
+  cSizing = 420;
 } else if (window.innerWidth >= 764 && window.innerWidth <= 1024) {
-  cSizing = 600;
+  cSizing = 560;
 } else if (window.innerWidth >= 1024 && window.innerWidth <= 1500) {
-  cSizing = 764;
+  cSizing = 664;
 } else if (window.innerWidth >= 1500) {
-  cSizing = 1024;
+  cSizing = 724;
 } else cSizing = 315;
 
 if (window.innerWidth <= 1024) {
@@ -129,66 +129,45 @@ function downloadURI(uri, name) {
   link.click();
 }
 
+function aspectRation(event, width = 1, height = 1) {
+  canvas.setHeight(cSizing / width);
+  canvas.setWidth(cSizing / height);
+
+  canvas.renderAll();
+
+  event.preventDefault();
+}
+
 clear.addEventListener('click', function () {
   canvas.remove(...canvas.getObjects());
 });
 
-canvasColor.addEventListener('change', function (e) {
-  canvas.backgroundColor = e.target.value;
+canvasColor.addEventListener('click', function (e) {
+  console.log('hi');
+
+  canvas.backgroundColor = $('#backgroundColor').val();
   canvas.renderAll();
 });
 
-ratio.addEventListener('change', (e) => {
-  switch (e.target.value) {
-    case '1:1':
-      canvas.setHeight(cSizing);
-      canvas.setWidth(cSizing);
-      break;
-    case '3:2':
-      canvas.setHeight(cSizing / 1.5);
-      canvas.setWidth(cSizing);
-      break;
-    case '1:2':
-      canvas.setHeight(cSizing);
-      canvas.setWidth(cSizing / 2);
-      break;
-    case '16:9':
-      canvas.setHeight(cSizing / 1.7);
-      canvas.setWidth(cSizing);
-      break;
-    case '9:16':
-      canvas.setHeight(cSizing);
-      canvas.setWidth(cSizing / 1.7);
-      break;
+// border.addEventListener('click', (e) => {
+//   if (check.checked) {
+//     borderArr.map((item) => {
+//       item.strokeWidth = 10;
+//     });
+//   } else {
+//     borderArr.map((item) => {
+//       item.strokeWidth = 0;
+//     });
+//   }
+//   canvas.renderAll();
+// });
 
-    default:
-      canvas.setHeight(cSizing);
-      canvas.setWidth(cSizing);
-      break;
-  }
-
-  canvas.renderAll();
-});
-
-border.addEventListener('click', (e) => {
-  if (check.checked) {
-    borderArr.map((item) => {
-      item.strokeWidth = 10;
-    });
-  } else {
-    borderArr.map((item) => {
-      item.strokeWidth = 0;
-    });
-  }
-  canvas.renderAll();
-});
-
-document.getElementById('stroke').addEventListener('change', (e) => {
-  if (e.target.value !== '') {
-    check.checked = true;
-    borderArr.map((item) => {
-      item.strokeWidth = parseInt(e.target.value);
-    });
-    canvas.renderAll();
-  }
-});
+// document.getElementById('stroke').addEventListener('change', (e) => {
+//   if (e.target.value !== '') {
+//     check.checked = true;
+//     borderArr.map((item) => {
+//       item.strokeWidth = parseInt(e.target.value);
+//     });
+//     canvas.renderAll();
+//   }
+// });
