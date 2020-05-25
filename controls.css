@@ -14,17 +14,21 @@
   justify-content: flex-start;
   flex-direction: row;
   align-items: center;
-  
   border-radius: 5px 5px 0 0;
   height: max-content;
   padding: 5px;
   margin: 0 auto;
-  min-width: 300px;
+  min-width: 260px;
   max-width: 450px;
   overflow-x: scroll;
   padding: 15px;
 }
 
+@media all and (max-width: 520px){
+  .tab{
+    max-width: 260px;
+  }
+}
 .addImage{
   cursor: pointer;
 }
