@@ -1,19 +1,35 @@
 .dk-panel {
   margin: 20px auto;
 }
-.tab {
+
+.center-tab {
   display: flex;
   justify-content: center;
   flex-direction: row;
-  width: 100% !important;
+  align-items: center;
+}
+
+.tab {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  align-items: center;
+  width: 80% !important;
   border-radius: 5px 5px 0 0;
   height: max-content;
   padding: 5px;
   margin: 0 auto;
+  overflow-x: scroll;
+  padding: 15px;
+}
+
+.addImage{
+  cursor: pointer;
 }
 
 /* Style the buttons inside the tab */
-.tab button, .tab label {
+.tab button,
+.tab label {
   background-color: inherit;
   border: 1px solid #ccc;
   color: #121212a7;
@@ -23,7 +39,7 @@
   transition: 0.3s;
   font-size: 14px;
   border-radius: 3px;
-  width: 70px !important;
+  min-width: 70px !important;
   height: 60px;
   display: flex;
   flex-direction: column;
@@ -57,7 +73,8 @@
   font-size: 12px;
 }
 
-.tab button p.text, .tab label p.text {
+.tab button p.text,
+.tab label p.text {
   margin-top: 5px;
   font-family: 'Inconsolata';
   font-size: 12px;
@@ -67,12 +84,18 @@
 .tab button:hover {
   color: #4267b2;
   border-color: #4267b2;
+  -webkit-animation: neon 1.5s ease-in-out infinite alternate;
+  -moz-animation: neon 1.5s ease-in-out infinite alternate;
+  animation: neon 1.5s ease-in-out infinite alternate;
 }
 
 /* Create an active/current tablink class */
 .tab button.active {
   color: #4267b2;
   border-color: #4267b2;
+    -webkit-animation: neon 1.5s ease-in-out infinite alternate;
+  -moz-animation: neon 1.5s ease-in-out infinite alternate;
+  animation: neon 1.5s ease-in-out infinite alternate;
 }
 
 .row {
@@ -115,6 +138,10 @@
   border-color: #4267b2;
 }
 
+#color, #text{
+  overflow: visible;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -126,7 +153,6 @@
 }
 
 @media all and (max-width: 520px) {
-  .tab,
   .tabcontent {
     overflow-x: scroll;
   }
@@ -141,7 +167,8 @@
   width: max-content;
 }
 
-input.call-picker, input.call-textPicker {
+input.call-picker,
+input.call-textPicker {
   border: 1px solid #aaa;
   color: #666;
   text-transform: uppercase;
@@ -155,32 +182,37 @@ input.call-picker, input.call-textPicker {
 .color-picker {
   width: 130px;
   background: #f3f3f3;
-  height: 81px;
+  min-height: max-content;
   padding: 5px;
   border: 5px solid #fff;
   box-shadow: 0px 0px 3px 1px #ddd;
   position: absolute;
-  top: -60px;
+  top: 20px;
   left: 2px;
   z-index: 50000;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
-.color-holder, .textColor-holder {
+.color-holder,
+.textColor-holder {
   background: yellow;
   cursor: pointer;
   border: 1px solid #aaa;
-  width: 29px;
-  height: 29px;
+  min-width: 29px;
+  min-height: 29px;
   margin-left: 5px;
   border-radius: 3px;
+
+  z-index: 2000;
 }
 
-.color-picker .color-item {
+.color-item {
   cursor: pointer;
   width: 10px;
   height: 10px;
   list-style-type: none;
-  float: left;
   margin: 2px;
   border: 1px solid #ddd;
 }
@@ -196,20 +228,29 @@ input.call-picker, input.call-textPicker {
   filter: alpha(opacity=8);
 }
 
-.caption{
-    width: 90px;
+.caption {
+  width: 90px;
 }
 
-.caption::placeholder{
-    font-family: 'Inconsolata';
-    font-size: 12px;
+.caption::placeholder {
+  font-family: 'Inconsolata';
+  font-size: 12px;
 }
 
-.collapse{
-    display: none;
+.collapse {
+  display: none;
+}
+
+.seperator {
+  margin: 50px 0;
 }
 
 
-.seperator{
-    margin: 50px 0;
+@keyframes neon{
+from {
+    box-shadow: 0 0 2px #fff, 0 0 3px #fff, 0 0 4px #fff, 0 0 5px #228DFF, 0 0 6px #228DFF, 0 0 7px #228DFF, 0 0 8px #228DFF, 0 0 9px #228DFF;
+  }
+  to {
+    box-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 3px #fff, 0 0 4px #228DFF, 0 0 5px #228DFF, 0 0 6px #228DFF, 0 0 7px #228DFF, 0 0 8px #228DFF;
+  }
 }

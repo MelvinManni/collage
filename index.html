@@ -40,50 +40,48 @@
       <div class="overlay">
         <div class="container">
           <div class="dk-panel">
-            <div class="tab">
-              <div class="addImage">
-                <label for="file">
-                  <img src="./icons/photo.svg" width="25px" alt="" />
+            <div class="center-tab">
+              <div class="tab">
+                <div class="addImage">
+                  <label class="addImage" for="file">
+                    <img src="./icons/photo.svg" width="25px" alt="" />
                     <p class="text">Add Image</p>
-                </label>
-                <input id="file" name="file" type="file" accept="image/*" multiple="multiple" style="display: none;" />
+                  </label>
+                  <input id="file" name="file" type="file" accept="image/*" multiple="multiple" style="display: none;" />
+                </div>
+                <button class="tablinks" onclick="openCity(event, 'undo')">
+                  <img src="./icons/backspace.svg" width="20px" alt="" />
+                  <p class="text">Undo</p>
+                </button>
+                <button class="tablinks" onclick="openCity(event, 'border')">
+                  <img src="./icons/design.svg" width="20px" alt="" />
+                  <p class="text">Borders</p>
+                </button>
+                <button class="tablinks" onclick="openCity(event, 'aspect')">
+                  <img src="./icons/frame.svg" width="20px" alt="" />
+                  <p class="text">Aspect</p>
+                </button>
+                <button class="tablinks" onclick="openCity(event, 'color')">
+                  <img src="./icons/paint.svg" width="20px" alt="" />
+                  <p class="text">
+                    Color
+                  </p>
+                </button>
+              
+                <button class="tablinks" onclick="openCity(event, 'text')">
+                  <img src="./icons/text.svg" width="20px" alt="" />
+                  <p class="text">
+                    Text
+                  </p>
+                </button>
+              
+                <button class="tablinks" onclick="openCity(event, 'done')">
+                  <img src="./icons/done.svg" width="20px" alt="" />
+                  <p class="text">Done</p>
+                </button>
               </div>
-              <button class="tablinks" onclick="openCity(event, 'undo')" >
-                <img
-                  src="./icons/backspace.svg"
-                  width="20px"
-                  alt=""
-                />
-                <p class="text">Undo</p>
-              </button>
-              <button class="tablinks" onclick="openCity(event, 'border')">
-                <img src="./icons/design.svg" width="20px" alt="" />
-                <p class="text">Borders</p>
-              </button>
-              <button class="tablinks" onclick="openCity(event, 'aspect')">
-                <img src="./icons/frame.svg" width="20px" alt="" />
-                <p class="text">Aspect</p>
-              </button>
-              <button class="tablinks" onclick="openCity(event, 'color')">
-                <img src="./icons/paint.svg" width="20px" alt="" />
-                <p class="text">
-                  Color
-                </p>
-              </button>
 
-              <button class="tablinks" onclick="openCity(event, 'text')">
-                <img src="./icons/text.svg" width="20px" alt="" />
-                <p class="text">
-                  Text
-                </p>
-              </button>
-
-              <button class="tablinks" onclick="openCity(event, 'done')">
-                <img src="./icons/done.svg" width="20px" alt="" />
-                <p class="text">Done</p>
-              </button>
             </div>
-
 
             <!-- CLEAR-- -->
             <div id="empty" class="tabcontent"></div>
