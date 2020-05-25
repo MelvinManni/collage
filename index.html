@@ -48,13 +48,13 @@
                 </label>
                 <input id="file" name="file" type="file" accept="image/*" multiple="multiple" style="display: none;" />
               </div>
-              <button class="tablinks" id="clear">
+              <button class="tablinks" onclick="openCity(event, 'undo')" >
                 <img
-                  src="./icons/return.svg"
+                  src="./icons/backspace.svg"
                   width="20px"
                   alt=""
                 />
-                <p class="text">Clear</p>
+                <p class="text">Undo</p>
               </button>
               <button class="tablinks" onclick="openCity(event, 'border')">
                 <img src="./icons/design.svg" width="20px" alt="" />
@@ -88,21 +88,43 @@
             <!-- CLEAR-- -->
             <div id="empty" class="tabcontent"></div>
             <!-- CLEAR-ENDS -->
+
+            <!-- UNDO STARTS=== -->
+            <div id="undo" class="tabcontent">
+              <div class="row">
+                <button class="contentBtn" id="clear" active>
+                  <img src="./icons/return.svg" width="15px" alt="" />
+                  <p class="text">Clear</p>
+                </button>
+            
+                <button class="contentBtn" id="delete" active>
+                  <img src="./icons/trash.svg" width="15px" alt="" />
+                  <p class="text">Delete</p>
+                </button>
+              </div>
+            </div>
+
+
             <!-- BORDER==== -->
             <div id="border" class="tabcontent">
               <div class="row">
                 <button class="contentBtn" active>
-                  <img src="./icons/border.svg" width="15px" alt="" />
+                  <img src="./icons/no-border.svg" width="15px" id="noBorder" alt="" />
+                  <p class="text">none</p>
+                </button>
+
+                <button class="contentBtn" active>
+                  <img src="./icons/border.svg" width="15px" id="border-sm" alt="" />
                   <p class="text">x2</p>
                 </button>
 
                 <button class="contentBtn" active>
-                  <img src="./icons/border.svg" width="15px" alt="" />
+                  <img src="./icons/border.svg" width="15px" id="border-md" alt="" />
                   <p class="text">x3</p>
                 </button>
 
                 <button class="contentBtn" active>
-                  <img src="./icons/border.svg" width="15px" alt="" />
+                  <img src="./icons/border.svg" width="15px" id="border-lg" alt="" />
                   <p class="text">x4</p>
                 </button>
               </div>
@@ -158,7 +180,7 @@
           <div id="text" class="tabcontent">
             <div class="color-wrapper row">
 
-            <input type="text" name="caption" id="captionText" placeholder=" Enter Caption Text..." class="caption">
+            <input type="text" name="caption" id="captionText" maxlength="30" placeholder=" Enter Caption..." class="caption">
               <input type="text" name="custom_color" placeholder="#FFFFFF" id="textColor" class="call-textPicker collapse">
               <div class="textColor-holder call-textPicker"></div>
               <div class="color-picker" id="textColor-picker" style="display: none"></div>

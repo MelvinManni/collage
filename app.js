@@ -6,10 +6,17 @@ let ratio = document.getElementById('ratio');
 let border = document.getElementById('borderClick');
 let check = document.getElementById('border');
 
+function el(id) {
+  return document.getElementById(id);
+}
+
 let imageNum = 5;
 let cSizing;
 let multiplier;
 let borderArr = [];
+let caption = 'Fondbox';
+let captionColor = '#4267b2';
+let borderWidth = 0;
 
 if (window.innerWidth >= 360 && window.innerWidth <= 420) {
   cSizing = 340;
@@ -50,7 +57,6 @@ document.getElementById('file').addEventListener(
             image.set({
               left: spacedX,
               top: spacedY,
-              strokeWidth: 0,
               stroke: '#fff',
             });
             image.scaleToHeight(280);
@@ -94,14 +100,14 @@ document.getElementById('save').addEventListener('click', function (e) {
   );
 
   let text = canvas.add(
-    new fabric.Text('#CovidFondBox #KuchCorona', {
+    new fabric.Text(`#${caption}`, {
       fontFamily: 'Delicious_500',
       left: 5,
       top: 5,
       fontSize: 11,
       textAlign: 'left',
       strokeWidth: 0,
-      fill: '#4267b2',
+      fill: captionColor,
       hasBorders: false,
       hasControls: false,
       hasRotatingPoint: false,
@@ -118,7 +124,7 @@ document.getElementById('save').addEventListener('click', function (e) {
       multiplier: multiplier,
     });
 
-    downloadURI(image, 'fondbox collage');
+    downloadURI(image, 'collage');
   }, 400);
 });
 
@@ -143,31 +149,59 @@ clear.addEventListener('click', function () {
 });
 
 canvasColor.addEventListener('click', function (e) {
-  console.log('hi');
-
   canvas.backgroundColor = $('#backgroundColor').val();
   canvas.renderAll();
 });
 
-// border.addEventListener('click', (e) => {
-//   if (check.checked) {
-//     borderArr.map((item) => {
-//       item.strokeWidth = 10;
-//     });
-//   } else {
-//     borderArr.map((item) => {
-//       item.strokeWidth = 0;
-//     });
-//   }
-//   canvas.renderAll();
-// });
+el('delete').addEventListener('click', (e) => {
+  canvas.remove(canvas.getActiveObject());
+});
 
-// document.getElementById('stroke').addEventListener('change', (e) => {
-//   if (e.target.value !== '') {
-//     check.checked = true;
-//     borderArr.map((item) => {
-//       item.strokeWidth = parseInt(e.target.value);
-//     });
-//     canvas.renderAll();
-//   }
-// });
+// Borderr Setting==
+
+el('noBorder').addEventListener('click', (e) => {
+  e.preventDefault();
+  borderWidth = 0;
+  borderArr.map((item) => {
+    item.strokeWidth = parseInt(borderWidth);
+  });
+  canvas.renderAll();
+});
+
+el('border-sm').addEventListener('click', (e) => {
+  e.preventDefault();
+  borderWidth = 30;
+  borderArr.map((item) => {
+    item.strokeWidth = parseInt(borderWidth);
+  });
+  canvas.renderAll();
+});
+
+el('border-md').addEventListener('click', (e) => {
+  e.preventDefault();
+  borderWidth = 40;
+  borderArr.map((item) => {
+    item.strokeWidth = parseInt(borderWidth);
+  });
+  canvas.renderAll();
+});
+
+el('border-lg').addEventListener('click', (e) => {
+  e.preventDefault();
+  borderWidth = 50;
+  borderArr.map((item) => {
+    item.strokeWidth = parseInt(borderWidth);
+  });
+  canvas.renderAll();
+});
+
+// CAPTIO==
+
+el('captionText').addEventListener('change', (e) => {
+  caption = e.target.value;
+});
+
+el('textColor').addEventListener('click', (e) => {
+  captionColor = e.target.value;
+});
+
