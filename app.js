@@ -39,7 +39,7 @@ if (window.innerWidth <= 1024) {
 var canvas = new fabric.Canvas('canvas');
 canvas.setHeight(cSizing);
 canvas.setWidth(cSizing);
-canvas.backgroundColor = 'yellow';
+canvas.backgroundColor = '#0066ff';
 
 document.getElementById('file').addEventListener(
   'change',
