@@ -285,7 +285,7 @@ input.call-textPicker {
   background: transparent;
   border: none;
   outline: none;
-  margin-top: 30px;
+  margin-top: 80px;
   color: #228dff;
   cursor: pointer;
 }
@@ -361,9 +361,9 @@ input.call-textPicker {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: 5px;
-  transition: 0.3s ease all;
-  animation: 0.9s bounceInLeft 1 forwards;
-  animation-delay: 1.6s;
+  transition: 0.6s ease all;
+  animation: 1.4s bounceInLeft 1 forwards;
+  animation-delay: 0.8s;
   visibility: hidden;
 }
 
